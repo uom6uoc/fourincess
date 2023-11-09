@@ -11,8 +11,9 @@ const App = () => {
 
   React.useEffect(() => {
     if (!isBoss) return;
+
     updateUser(WALLET_BOSS);
-  }, [isBoss, updateUser]);
+  }, [isBoss]);
 
   return (
     <>

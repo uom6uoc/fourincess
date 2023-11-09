@@ -9,6 +9,21 @@ import {
 } from '~/app/constant';
 
 const useToken = () => {
+  const balanceToken = async ({ addr }: { addr: string }) => {
+    try {
+      const response = await axios.post(`${BASE_API_URL}/token/balance`, {
+        token: API_TOKEN,
+        chain: CHAIN,
+        cont_addr: TOKEN_CONTRACT_ADDRESS,
+        addr: addr,
+      });
+
+      return response.data.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const chargeToken = ({
     amount,
     address,
@@ -49,7 +64,7 @@ const useToken = () => {
     });
   };
 
-  return { chargeToken, sendToken };
+  return { balanceToken, chargeToken, sendToken };
 };
 
 export default useToken;

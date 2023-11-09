@@ -8,7 +8,7 @@ const TOKEN_CONTRACT_ADDRESS =
 const WALLET_DAEGU_CHAIN = {
   address: '9vhv1qiqwKwk4yZBfsG81tTT8zgmKDTKS6rYqCWduAMPmca',
   privatekey: 'BurPzXEjUowV7ojYk5HuQip1ovmWYWdYMWf8pKfs3wUzmpr',
-  publickey: '2AqgU83DSCUtpBo7H5UxvWRENrBSqh7thTcb9ASNgrULampu',
+  name: '대구시',
 };
 
 const WALLET_CUSTOMER = {
