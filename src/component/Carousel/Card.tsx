@@ -22,7 +22,7 @@ const Card = ({ type, title, name, gu, createdAt, amount, tokenId }: Props) => {
   const navigate = useNavigate();
 
   const handleQrpageMove = () => {
-    navigate('/did');
+    navigate('/did', { state: { type } });
   };
 
   const handleExchange = () => {
@@ -31,7 +31,7 @@ const Card = ({ type, title, name, gu, createdAt, amount, tokenId }: Props) => {
 
   const handleCharge = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
-    navigate('/charge');
+    navigate(`/charge?type=${type}`);
   };
 
   const handleHistoryMove = () => {

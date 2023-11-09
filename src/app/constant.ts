@@ -1,3 +1,6 @@
+// const MOBILE_URL = 'http://192.168.0.108:3000';
+const MOBILE_URL = 'http://192.168.0.110:3000';
+
 const CHAIN = 'mitumt';
 const API_TOKEN = 'a535eedb120715611f820ed90592ae62';
 const APPLICATION_KEY = '02da6741c960a08f749e60e6';
@@ -48,6 +51,7 @@ const DID_STORE = {
 };
 
 export {
+  MOBILE_URL,
   CHAIN,
   API_TOKEN,
   APPLICATION_KEY,

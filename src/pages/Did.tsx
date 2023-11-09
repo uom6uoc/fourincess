@@ -2,6 +2,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { MOBILE_URL } from '~/app/constant';
 import Did from '~/assets/page/Did.svg';
 import logoDaegu from '~/assets/svg/logo-daegu.svg';
 
@@ -9,7 +10,12 @@ const DidPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { balanceToken } = useToken();
+
   const userType = location?.state?.type;
+
+  const fgColor = userType === 'normal' ? '#31A9FF' : '#FF7A00';
+  const sendType = userType === 'normal' ? 'transfer' : 'pay';
 
   const handleMainPageMove = () => {
     navigate('/main');
@@ -22,8 +28,8 @@ const DidPage = () => {
         <QRCodeSVG
           width={234}
           height={234}
-          fgColor={userType === 'normal' ? '#31A9FF' : '#FF7A00'}
-          value={`http://192.168.0.108:3000/pay?did=~~~`}
+          fgColor={fgColor}
+          value={`${MOBILE_URL}/${sendType}`}
           imageSettings={{
             src: logoDaegu,
             x: undefined,
