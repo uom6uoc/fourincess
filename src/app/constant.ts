@@ -14,19 +14,19 @@ const WALLET_DAEGU_CHAIN = {
 const WALLET_CUSTOMER = {
   address: '53X5LvebpgKM77MDNQssp92SVe4dTbp4QoDJhGaDxphBmca',
   privatekey: 'BayupnznmbLnHHu4SF5PVBzwK18LDGsK3rMAxWnXzNg1mpr',
-  publickey: 'q7GbAJJjo7JTtsRzCCdFgEGWoXxeKfxGXmBLbpMBZfhAmpu',
+  name: '포린세스',
 };
 
 const WALLET_BOSS = {
   address: '8a7rDWnkEFUbJinAJKWGZt4VAFPAPvZNfRShKDEJ8U8tmca',
   privatekey: '3D6zt4xq8KxhYF72kXhoALAqRVyMqEDrfk1yS9wocfRXmpr',
-  publickey: '26AystjoHb5qqmh4LkXgZ3kZEHTo34G27UTZDUMVQnMDnmpu',
+  name: '김대구',
 };
 
 const WALLET_STORE = {
   address: '6uN5LUW99THHubsTmuM4GtvFsp3TpY6JJfXc333TjWXbmca',
   privatekey: '2apqyaA1dgYYnUKqMhQyjJQMqFVPMEks6s3omqZxj1z5mpr',
-  publickey: 'gxkWqF2nCwBnwrFPATaM84zGnGhg8UXVyxSumvQJdgjKmpu',
+  name: '대구치킨',
 };
 
 const DID_CUSTOMER = {

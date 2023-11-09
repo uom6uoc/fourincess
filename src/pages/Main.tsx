@@ -9,32 +9,27 @@ import History from '~/component/History';
 const HISTORIES: {
   createdAt: string;
   name: string;
-  amount: string;
-  type: 'send' | 'receive';
+  amount: number;
 }[] = [
   {
     createdAt: '23. 11. 03',
     name: '대구치킨',
-    amount: '30,000',
-    type: 'send',
+    amount: -30000,
   },
   {
     createdAt: '23. 11. 02',
     name: '김밥천국',
-    amount: '10,400',
-    type: 'send',
+    amount: 10400,
   },
   {
     createdAt: '23. 11. 01',
     name: '대구패션',
-    amount: '98,000',
-    type: 'send',
+    amount: 98000,
   },
   {
     createdAt: '23. 10. 28',
     name: '김대구',
-    amount: '500,000',
-    type: 'receive',
+    amount: 500,
   },
 ];
 

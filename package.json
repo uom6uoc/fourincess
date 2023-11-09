@@ -16,6 +16,7 @@
     "axios": "^1.6.0",
     "bignumber.js": "^9.1.2",
     "embla-carousel-react": "^8.0.0-rc14",
+    "immer": "^10.0.3",
     "qrcode.react": "^3.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

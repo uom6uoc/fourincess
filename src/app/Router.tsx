@@ -31,7 +31,7 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <MainPage />,
+        element: <Navigate to="create-account" />,
       },
       {
         path: 'create-account',
