@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
     // Basic Settings
-    "target": "ESNext",
-    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "target": "ES2020",
     "module": "ESNext",
     "jsx": "react-jsx",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
 
-    // Module and
-    "moduleResolution": "Node",
+    // Module and Path Settings
+    "moduleResolution": "bundler",
     "useDefineForClassFields": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
 
@@ -21,14 +25,13 @@
 
     // Inspection and Warning Related
     "strict": true,
+    // "noUnusedLocals": true,
+    // "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true,
 
-    // Path Settings
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["src/*"]
-    }
+    // custom
+    "types": ["bignumber.js"]
   },
   "include": ["src/**/*"],
   "references": [{ "path": "./tsconfig.node.json" }]

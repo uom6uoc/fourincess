@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+
 import iconCompany from '~/assets/svg/icon-company.svg';
 import iconIndividual from '~/assets/svg/icon-individual.svg';
+import iconPlus from '~/assets/svg/icon-plus.svg';
 import iconScan from '~/assets/svg/icon-scan.svg';
 import iconSwap from '~/assets/svg/icon-swap.svg';
-import iconPlus from '~/assets/svg/icon-plus.svg';
 
 interface Props {
   title: string;

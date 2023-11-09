@@ -1,9 +1,10 @@
-import Carousel from '~/component/Carousel';
 import { QRCodeSVG } from 'qrcode.react';
-import { WALLET_DAEGU_CHAIN } from '~/app/constant';
-import History from '~/component/History';
 import styled from 'styled-components';
+
+import { WALLET_DAEGU_CHAIN } from '~/app/constant';
 import page3 from '~/assets/svg/page3.svg';
+import Carousel from '~/component/Carousel';
+import History from '~/component/History';
 
 const HISTORIES: {
   createdAt: string;

@@ -1,5 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 import styled from 'styled-components';
+
 import Card from './Card';
 
 const Carousel = () => {
