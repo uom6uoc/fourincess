@@ -1,4 +1,3 @@
-import { QRCodeSVG } from 'qrcode.react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -43,18 +42,6 @@ const MainPage = () => {
 
   return (
     <Container>
-      {/* <QRCodeSVG
-        fgColor={'#FF7A00'}
-        value="https://reactjs.org/"
-        imageSettings={{
-          src: 'https://static.zpao.com/favicon.png',
-          x: undefined,
-          y: undefined,
-          height: 32,
-          width: 32,
-          excavate: true,
-        }}
-      /> */}
       <img src={Main} />
       <StyledCarousel cardData={CARD_DATA} />
       <ApplyMembershipMoveButton onClick={handleApplyMembershipMove} />
