@@ -34,39 +34,43 @@ const MainPage = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [cardData, setCardData] = React.useState<CardData[]>([]);
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      if (didList.length < 1) return;
+  const fetchData = async () => {
+    if (didList.length < 1) return;
 
-      const getBalance = didList.map((did) => {
-        return balanceToken({ addr: did.address });
+    const getBalance = didList.map((did) => {
+      return balanceToken({ addr: did.address });
+    });
+
+    try {
+      const newCardData = await promise.allResolved(getBalance);
+
+      const cardData: CardData[] = didList.map((did, index) => {
+        const target = newCardData.find((item) => {
+          if (item.addr === did.address) {
+            return item.balance;
+          }
+        });
+        return {
+          ...BASE_CARD_DATA,
+          name: did.name,
+          type: index === 0 ? 'normal' : 'company',
+          amount: target.balance ?? 0,
+        };
       });
 
-      try {
-        const newCardData = await promise.allResolved(getBalance);
+      setCardData(cardData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-        const cardData: CardData[] = didList.map((did, index) => {
-          const target = newCardData.find((item) => {
-            if (item.addr === did.address) {
-              return item.balance;
-            }
-          });
-          return {
-            ...BASE_CARD_DATA,
-            name: did.name,
-            type: index === 0 ? 'normal' : 'company',
-            amount: target.balance ?? 0,
-          };
-        });
+  React.useEffect(() => {
+    const fetchDataInterval = setInterval(() => {
+      fetchData();
+    }, 1000);
 
-        setCardData(cardData);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, [didList]);
+    return () => clearInterval(fetchDataInterval);
+  }, []);
 
   const handleApplyMembershipMove = () => {
     navigate('/apply-membership');

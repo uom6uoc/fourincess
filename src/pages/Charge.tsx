@@ -2,12 +2,17 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Charge from '~/assets/page/Charge.svg';
+import useToken from '~/hooks/useToken';
+import { useWalletInfoStore } from '~/store/walletInfo';
 
 const ChargePage = () => {
   const navigate = useNavigate();
 
+  const user = useWalletInfoStore((state) => state.user);
+  const { chargeToken } = useToken();
+
   const handleCharge = () => {
-    console.log('충전로직');
+    chargeToken({ amount: 10000, address: user.address });
     navigate('/main');
   };
 

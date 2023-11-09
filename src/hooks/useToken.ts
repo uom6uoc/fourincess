@@ -24,25 +24,30 @@ const useToken = () => {
     }
   };
 
-  const chargeToken = ({
+  const chargeToken = async ({
     amount,
     address,
   }: {
     amount: number;
     address: string;
   }) => {
-    return axios.post(`${BASE_API_URL}/token/transfer`, {
-      token: API_TOKEN,
-      chain: CHAIN,
-      cont_addr: TOKEN_CONTRACT_ADDRESS,
-      sender: WALLET_DAEGU_CHAIN.address,
-      sender_pkey: WALLET_DAEGU_CHAIN.privatekey,
-      receiver: address,
-      amount,
-    });
+    try {
+      const response = await axios.post(`${BASE_API_URL}/token/transfer`, {
+        token: API_TOKEN,
+        chain: CHAIN,
+        cont_addr: TOKEN_CONTRACT_ADDRESS,
+        sender: WALLET_DAEGU_CHAIN.address,
+        sender_pkey: WALLET_DAEGU_CHAIN.privatekey,
+        receiver: address,
+        amount,
+      });
+      return response.data.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const sendToken = ({
+  const sendToken = async ({
     senderAddress,
     senderPrivateKey,
     receiver,
@@ -53,15 +58,20 @@ const useToken = () => {
     receiver: string;
     amount: number;
   }) => {
-    return axios.post(`${BASE_API_URL}/token/transfer`, {
-      token: API_TOKEN,
-      chain: CHAIN,
-      cont_addr: TOKEN_CONTRACT_ADDRESS,
-      sender: senderAddress,
-      sender_pkey: senderPrivateKey,
-      receiver,
-      amount,
-    });
+    try {
+      const response = await axios.post(`${BASE_API_URL}/token/transfer`, {
+        token: API_TOKEN,
+        chain: CHAIN,
+        cont_addr: TOKEN_CONTRACT_ADDRESS,
+        sender: senderAddress,
+        sender_pkey: senderPrivateKey,
+        receiver,
+        amount,
+      });
+      return response.data.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return { balanceToken, chargeToken, sendToken };
