@@ -1,6 +1,6 @@
 import Carousel from '~/component/Carousel';
 import { QRCodeSVG } from 'qrcode.react';
-import { WALLET_1 } from '~/app/constant';
+import { WALLET_DAEGU_CHAIN } from '~/app/constant';
 import History from '~/component/History';
 import styled from 'styled-components';
 import page3 from '~/assets/svg/page3.svg';

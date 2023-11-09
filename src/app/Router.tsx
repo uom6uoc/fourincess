@@ -17,7 +17,7 @@ import TransferInputCompletePage from '~/pages/TransferInputComplete';
 import TransferSendPage from '~/pages/TransferSend';
 import TransferSendCompletePage from '~/pages/TransferSendComplete';
 import TransferHistoryPage from '~/pages/TransferHistory';
-import TransferChargePage from '~/pages/TransferCharge';
+import ChargePage from '~/pages/Charge';
 import ShopPage from '~/pages/Shop';
 import PayPage from '~/pages/Pay';
 import PayInputCompletePage from '~/pages/PayInputComplete';
@@ -74,8 +74,8 @@ const routes: RouteObject[] = [
         element: <TransferHistoryPage />,
       },
       {
-        path: 'transfer/charge',
-        element: <TransferChargePage />,
+        path: 'charge',
+        element: <ChargePage />,
       },
       {
         path: 'pay',

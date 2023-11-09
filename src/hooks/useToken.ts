@@ -3,7 +3,7 @@ import { BASE_API_URL } from '~/app/config';
 import {
   API_TOKEN,
   CHAIN,
-  OWNER_WALLET,
+  WALLET_DAEGU_CHAIN,
   TOKEN_CONTRACT_ADDRESS,
 } from '~/app/constant';
 
@@ -18,9 +18,9 @@ const useToken = () => {
     return axios.post(`${BASE_API_URL}/token/transfer`, {
       token: API_TOKEN,
       chain: CHAIN,
-      cont_addr: TOKEN_CONTRACT_ADDRESS.AAA,
-      sender: OWNER_WALLET.address,
-      sender_pkey: OWNER_WALLET.privatekey,
+      cont_addr: TOKEN_CONTRACT_ADDRESS,
+      sender: WALLET_DAEGU_CHAIN.address,
+      sender_pkey: WALLET_DAEGU_CHAIN.privatekey,
       receiver: address,
       amount,
     });
@@ -40,7 +40,7 @@ const useToken = () => {
     return axios.post(`${BASE_API_URL}/token/transfer`, {
       token: API_TOKEN,
       chain: CHAIN,
-      cont_addr: TOKEN_CONTRACT_ADDRESS.AAA,
+      cont_addr: TOKEN_CONTRACT_ADDRESS,
       sender: senderAddress,
       sender_pkey: senderPrivateKey,
       receiver,
