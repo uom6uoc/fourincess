@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Did from '~/assets/page/Did.svg';
+import logoDaegu from '~/assets/svg/logo-daegu.svg';
 
 const DidPage = () => {
   const location = useLocation();
@@ -24,7 +25,7 @@ const DidPage = () => {
           fgColor={userType === 'normal' ? '#31A9FF' : '#FF7A00'}
           value={`http://192.168.0.108:3000/pay?did=~~~`}
           imageSettings={{
-            src: 'https://static.zpao.com/favicon.png',
+            src: logoDaegu,
             x: undefined,
             y: undefined,
             height: 32,
