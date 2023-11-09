@@ -8,11 +8,15 @@ import {
 import styled from 'styled-components';
 
 import { useAxios } from '~/hooks';
-import TOKEN from '~/sample/token';
+import { useLocation, useParams } from 'react-router-dom';
+// import TOKEN from '~/sample/token';
 
 import 'react-json-view-lite/dist/index.css';
 
 const TestPage = () => {
+  const location = useLocation();
+  const params = new URLSearchParams(location.search);
+  console.log(params.get('address'));
   // const methodRef = React.useRef<HTMLInputElement>(null);
   // const pathRef = React.useRef<HTMLInputElement>(null);
 
@@ -36,14 +40,14 @@ const TestPage = () => {
   return (
     <div>
       <h1>Test</h1>
-      {TOKEN.map((token: any, index: number) => (
+      {/* {TOKEN.map((token: any, index: number) => (
         <JsonView
           key={index}
           data={token}
           shouldExpandNode={allExpanded}
           style={darkStyles}
         />
-      ))}
+      ))} */}
 
       {/* {loading && <p>Loading...</p>}
       {error && <p>{error.message}</p>}

@@ -7,6 +7,7 @@
 // NSE
 
 // MINIC
+const CHAIN = 'mitumt';
 const API_TOKEN = 'a535eedb120715611f820ed90592ae62';
 const APPLICATION_KEY = '02da6741c960a08f749e60e6';
 // const SECRET_KEY =
@@ -47,3 +48,14 @@ const WALLET_3 = {
 //   privatekey: '5P13TuGDbf7vFfhAuHTqgXjsrnBf4T3672Tf7F687iAmpr',
 //   publickey: 'eGfFgL4mFFdQWJ2TXVVrPLDRJA9SqZyFYJMrJxtaP7JQmpu',
 // };
+
+export {
+  CHAIN,
+  API_TOKEN,
+  APPLICATION_KEY,
+  TOKEN_CONTRACT_ADDRESS,
+  OWNER_WALLET,
+  WALLET_1,
+  WALLET_2,
+  WALLET_3,
+};

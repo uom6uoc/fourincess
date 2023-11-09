@@ -20,6 +20,10 @@ const rootVariable = css`
 
 const GlobalStyle = createGlobalStyle`
   ${rootVariable};
+  #root {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default GlobalStyle;
