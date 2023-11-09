@@ -21,8 +21,11 @@ const rootVariable = css`
 const GlobalStyle = createGlobalStyle`
   ${rootVariable};
   #root {
+    display: flex;
+    justify-content: center;
     width: 100%;
     height: 100%;
+    background-color: #000000;
   }
 `;
 
