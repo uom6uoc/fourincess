@@ -1,14 +1,41 @@
 import useEmblaCarousel from 'embla-carousel-react';
+import { type } from 'os';
 import styled from 'styled-components';
 
 import Card from './Card';
 
-const Carousel = () => {
+interface Props {
+  className?: string;
+  cardData: {
+    title: string;
+    name: string;
+    gu: string;
+    type: 'normal' | 'company';
+    createdAt: string;
+    amount: number;
+    tokenId: string;
+  }[];
+}
+
+const Carousel = ({ className, cardData }: Props) => {
   const [emblaRef] = useEmblaCarousel();
   return (
-    <Embla ref={emblaRef}>
+    <Embla ref={emblaRef} className={className}>
       <EmblaContainer>
-        <EmblaSlide>
+        {cardData.map((cardinfo, index) => (
+          <EmblaSlide key={index}>
+            <Card
+              title={cardinfo.title}
+              gu={cardinfo.gu}
+              type={cardinfo.type}
+              name={cardinfo.name}
+              createdAt={cardinfo.createdAt}
+              amount={cardinfo.amount}
+              tokenId={cardinfo.tokenId}
+            />
+          </EmblaSlide>
+        ))}
+        {/* <EmblaSlide>
           <Card
             title={'디지털 신분증'}
             gu={'수성구'}
@@ -29,7 +56,7 @@ const Carousel = () => {
             amount={10000000}
             tokenId={'AND'}
           />
-        </EmblaSlide>
+        </EmblaSlide> */}
       </EmblaContainer>
     </Embla>
   );
@@ -38,6 +65,7 @@ const Carousel = () => {
 export default Carousel;
 
 const Embla = styled.div`
+  width: 100%;
   overflow: hidden;
 `;
 

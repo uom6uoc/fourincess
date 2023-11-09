@@ -1,3 +1,5 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import iconCompany from '~/assets/svg/icon-company.svg';
@@ -17,20 +19,23 @@ interface Props {
 }
 
 const Card = ({ type, title, name, gu, createdAt, amount, tokenId }: Props) => {
+  const navigate = useNavigate();
+
   const handleQrpageMove = () => {
-    console.log('handleQrpageMove');
+    navigate('/did');
   };
 
   const handleExchange = () => {
     console.log('handleExchange');
   };
 
-  const handleCharge = () => {
-    console.log('handleCharge');
+  const handleCharge = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+    navigate('/charge');
   };
 
   const handleHistoryMove = () => {
-    console.log('handleHistoryMove');
+    navigate('/transfer/history');
   };
 
   return (

@@ -1,47 +1,49 @@
 import { QRCodeSVG } from 'qrcode.react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { WALLET_DAEGU_CHAIN } from '~/app/constant';
-import page3 from '~/assets/svg/page3.svg';
+import Main from '~/assets/page/Main.svg';
 import Carousel from '~/component/Carousel';
-import History from '~/component/History';
 
-const HISTORIES: {
-  createdAt: string;
+const CARD_DATA: {
+  title: string;
   name: string;
-  amount: string;
-  type: 'send' | 'receive';
+  gu: string;
+  type: 'normal' | 'company';
+  createdAt: string;
+  amount: number;
+  tokenId: string;
 }[] = [
   {
-    createdAt: '23. 11. 03',
-    name: '대구치킨',
-    amount: '30,000',
-    type: 'send',
-  },
-  {
-    createdAt: '23. 11. 02',
-    name: '김밥천국',
-    amount: '10,400',
-    type: 'send',
-  },
-  {
-    createdAt: '23. 11. 01',
-    name: '대구패션',
-    amount: '98,000',
-    type: 'send',
-  },
-  {
-    createdAt: '23. 10. 28',
+    title: '디지털 신분증',
     name: '김대구',
-    amount: '500,000',
-    type: 'receive',
+    gu: '수성구',
+    type: 'normal',
+    createdAt: '23. 11. 09',
+    amount: 100000,
+    tokenId: 'AND',
+  },
+  {
+    title: '나의 토큰',
+    name: '대구치킨',
+    gu: '달서구',
+    type: 'company',
+    createdAt: '23. 11. 09',
+    amount: 100000,
+    tokenId: 'AND',
   },
 ];
 
 const MainPage = () => {
+  const navigate = useNavigate();
+
+  const handleApplyMembershipMove = () => {
+    navigate('/apply-membership');
+  };
+
   return (
     <Container>
-      <QRCodeSVG
+      {/* <QRCodeSVG
         fgColor={'#FF7A00'}
         value="https://reactjs.org/"
         imageSettings={{
@@ -52,8 +54,10 @@ const MainPage = () => {
           width: 32,
           excavate: true,
         }}
-      />
-      <img src={page3} />
+      /> */}
+      <img src={Main} />
+      <StyledCarousel cardData={CARD_DATA} />
+      <ApplyMembershipMoveButton onClick={handleApplyMembershipMove} />
     </Container>
   );
 };
@@ -62,9 +66,24 @@ export default MainPage;
 
 const Container = styled.div`
   position: relative;
+  width: 390px;
+  height: 844px;
+  overflow: hidden;
   img {
     display: block;
-    position: absolute;
-    /* top: -53px; */
   }
+`;
+
+const StyledCarousel = styled(Carousel)`
+  position: absolute;
+  top: 119px;
+  left: 20px;
+`;
+
+const ApplyMembershipMoveButton = styled.div`
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  bottom: 27px;
+  right: 51px;
 `;
