@@ -76,11 +76,16 @@ const MainPage = () => {
     navigate('/apply-membership');
   };
 
+  const handleShopMove = () => {
+    navigate('/shop');
+  };
+
   return (
     <Container>
       <img src={Main} />
       {cardData.length > 0 && <StyledCarousel cardData={cardData} />}
       <ApplyMembershipMoveButton onClick={handleApplyMembershipMove} />
+      <ShopMoveButton onClick={handleShopMove} />
     </Container>
   );
 };
@@ -109,4 +114,12 @@ const ApplyMembershipMoveButton = styled.div`
   height: 80px;
   bottom: 27px;
   right: 51px;
+`;
+
+const ShopMoveButton = styled.div`
+  position: absolute;
+  width: 60px;
+  height: 80px;
+  bottom: 27px;
+  left: 159px;
 `;
