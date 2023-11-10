@@ -9,11 +9,15 @@ const App = () => {
   const isBoss = localStorage.getItem('isBoss');
   const updateUser = useWalletInfoStore((state) => state.updateUser);
 
+  const auth = localStorage.getItem('auth-four');
+
   React.useEffect(() => {
     if (!isBoss) return;
 
     updateUser(WALLET_BOSS);
   }, [isBoss]);
+
+  if (!auth) return null;
 
   return (
     <>

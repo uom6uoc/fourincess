@@ -10,8 +10,6 @@ const DidPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { balanceToken } = useToken();
-
   const userType = location?.state?.type;
 
   const fgColor = userType === 'normal' ? '#31A9FF' : '#FF7A00';
