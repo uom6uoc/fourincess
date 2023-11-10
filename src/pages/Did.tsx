@@ -4,18 +4,18 @@ import styled from 'styled-components';
 
 import { MOBILE_URL } from '~/app/constant';
 import Did from '~/assets/page/Did.svg';
+import logoDaeguStore from '~/assets/svg/logo-daegu-store.svg';
 import logoDaegu from '~/assets/svg/logo-daegu.svg';
 
 const DidPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const { balanceToken } = useToken();
-
   const userType = location?.state?.type;
 
   const fgColor = userType === 'normal' ? '#31A9FF' : '#FF7A00';
   const sendType = userType === 'normal' ? 'transfer' : 'pay';
+  const symbol = userType === 'normal' ? logoDaegu : logoDaeguStore;
 
   const handleMainPageMove = () => {
     navigate('/main');
@@ -31,11 +31,11 @@ const DidPage = () => {
           fgColor={fgColor}
           value={`${MOBILE_URL}/${sendType}`}
           imageSettings={{
-            src: logoDaegu,
+            src: symbol,
             x: undefined,
             y: undefined,
-            height: 32,
-            width: 32,
+            height: 24,
+            width: 24,
             excavate: true,
           }}
         />

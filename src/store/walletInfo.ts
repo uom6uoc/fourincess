@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { immer } from 'zustand/middleware/immer';
 
-import { WALLET_CUSTOMER } from '~/app/constant';
+import { WALLET_BOSS, WALLET_CUSTOMER } from '~/app/constant';
 
 type WalletInfo = {
   name: string;
@@ -19,19 +19,12 @@ interface Actions {
   updateUser: ({ name, address, privatekey }: WalletInfo) => void;
 }
 
+const isBoss = localStorage.getItem('isBoss');
+const initWallet = isBoss ? WALLET_BOSS : WALLET_CUSTOMER;
+
 const initialState: State = {
-  user: {
-    name: WALLET_CUSTOMER.name,
-    address: WALLET_CUSTOMER.address,
-    privatekey: WALLET_CUSTOMER.privatekey,
-  },
-  list: [
-    {
-      name: WALLET_CUSTOMER.name,
-      address: WALLET_CUSTOMER.address,
-      privatekey: WALLET_CUSTOMER.privatekey,
-    },
-  ],
+  user: initWallet,
+  list: [initWallet],
 };
 
 export const useWalletInfoStore = create<State & Actions>()(
