@@ -70,6 +70,7 @@ const MainPage = () => {
     }, 1000);
 
     return () => clearInterval(fetchDataInterval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleApplyMembershipMove = () => {

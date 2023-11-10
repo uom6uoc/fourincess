@@ -11,13 +11,13 @@ import ChargePage from '~/pages/Charge';
 import CreateAccountPage from '~/pages/CreateAccount';
 import CreateAccountCertificationPage from '~/pages/CreateAccountCertification';
 import DidPage from '~/pages/Did';
+import HistoryPage from '~/pages/History';
 import PayPage from '~/pages/Pay';
 import PayInputCompletePage from '~/pages/PayInputComplete';
 import PaySendPage from '~/pages/PaySend';
 import PaySendCompletePage from '~/pages/PaySendComplete';
 import ShopPage from '~/pages/Shop';
 import TransferPage from '~/pages/Transfer';
-import TransferHistoryPage from '~/pages/TransferHistory';
 import TransferInputCompletePage from '~/pages/TransferInputComplete';
 import TransferSendPage from '~/pages/TransferSend';
 import TransferSendCompletePage from '~/pages/TransferSendComplete';
@@ -70,8 +70,8 @@ const routes: RouteObject[] = [
         element: <TransferSendCompletePage />,
       },
       {
-        path: 'transfer/history',
-        element: <TransferHistoryPage />,
+        path: 'history',
+        element: <HistoryPage />,
       },
       {
         path: 'charge',

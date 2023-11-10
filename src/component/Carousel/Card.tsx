@@ -35,7 +35,7 @@ const Card = ({ type, title, name, gu, createdAt, amount, tokenId }: Props) => {
   };
 
   const handleHistoryMove = () => {
-    navigate('/transfer/history');
+    navigate('/history');
   };
 
   return (

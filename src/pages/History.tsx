@@ -1,13 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import TransferHistory from '~/assets/page/TransferHistory.svg';
+import TransferHistory from '~/assets/page/History.svg';
 
-const TransferHistoryPage = () => {
+const HistoryPage = () => {
   const navigate = useNavigate();
   const handleBack = () => {
     navigate('/main');
   };
+
   return (
     <Container>
       <img src={TransferHistory} alt="" />
@@ -16,7 +17,7 @@ const TransferHistoryPage = () => {
   );
 };
 
-export default TransferHistoryPage;
+export default HistoryPage;
 
 const Container = styled.div`
   position: relative;

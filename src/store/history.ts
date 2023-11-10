@@ -16,8 +16,14 @@ interface Actions {
   add: ({ name, amount }: { name: string; amount: number }) => void;
 }
 
+const initHistory = {
+  createdAt: '23. 11. 09',
+  name: 'DID 생성',
+  amount: 1,
+};
+
 const initialState: State = {
-  list: [],
+  list: [initHistory],
 };
 
 export const useHistoryStore = create<State & Actions>()(
