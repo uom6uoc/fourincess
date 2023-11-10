@@ -16,7 +16,6 @@ interface State {
 
 interface Actions {
   addList: ({ name, address, privatekey }: WalletInfo) => void;
-  updateUser: ({ name, address, privatekey }: WalletInfo) => void;
 }
 
 const isBoss = localStorage.getItem('isBoss');
@@ -33,12 +32,6 @@ export const useWalletInfoStore = create<State & Actions>()(
     addList: ({ name, address, privatekey }) => {
       set((state) => {
         state.list.push({ name, address, privatekey });
-      });
-    },
-    updateUser: ({ name, address, privatekey }) => {
-      set((state) => {
-        state.user = { name, address, privatekey };
-        state.list[0] = { name, address, privatekey };
       });
     },
   }))

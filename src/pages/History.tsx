@@ -2,9 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import TransferHistory from '~/assets/page/History.svg';
+import Table from '~/component/History';
+import { useHistoryStore } from '~/store/history';
 
 const HistoryPage = () => {
   const navigate = useNavigate();
+
+  const history = useHistoryStore();
+
   const handleBack = () => {
     navigate('/main');
   };
@@ -12,6 +17,7 @@ const HistoryPage = () => {
   return (
     <Container>
       <img src={TransferHistory} alt="" />
+      <Table histories={[]} />
       <BackButton onClick={handleBack} />
     </Container>
   );
