@@ -7,6 +7,7 @@ import iconIndividual from '~/assets/svg/icon-individual.svg';
 import iconPlus from '~/assets/svg/icon-plus.svg';
 import iconScan from '~/assets/svg/icon-scan.svg';
 import iconSwap from '~/assets/svg/icon-swap.svg';
+import logoDaegu from '~/assets/svg/logo-daegu.svg';
 
 interface Props {
   title: string;
@@ -104,7 +105,9 @@ const Card = ({ type, title, name, gu, createdAt, amount, tokenId }: Props) => {
           )}
         </TokenCardHeader>
         <TokenCardContent>
-          <TokenCardSymbol />
+          <TokenCardSymbol>
+            <img src={logoDaegu} alt="" />
+          </TokenCardSymbol>
           <TokenCardAmount>
             <span>{amount.toLocaleString()}</span>
             <span>{tokenId}</span>
@@ -273,6 +276,10 @@ const TokenCardSymbol = styled.div`
   height: 36px;
   border-radius: 50%;
   background-color: #fff;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const TokenCardAmount = styled.div`
