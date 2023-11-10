@@ -1,15 +1,18 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { WALLET_BOSS } from '~/app/constant';
+import { WALLET_BOSS, WALLET_CUSTOMER } from '~/app/constant';
 import TransferSend from '~/assets/page/TransferSend.svg';
 import useToken from '~/hooks/useToken';
+import { useHistoryStore } from '~/store/history';
 import { useWalletInfoStore } from '~/store/walletInfo';
 
 const TransferSendPage = () => {
   const navigate = useNavigate();
 
   const user = useWalletInfoStore((state) => state.user);
+  const addHistory = useHistoryStore((state) => state.addHistory);
+
   const { sendToken } = useToken();
 
   const handleSendCompleteMove = () => {
@@ -19,6 +22,13 @@ const TransferSendPage = () => {
       receiver: WALLET_BOSS.address,
       amount: 10000,
     });
+
+    addHistory({
+      address: user.address,
+      name: WALLET_CUSTOMER.name,
+      amount: 10000,
+    });
+
     navigate('/transfer/send/complete');
   };
 

@@ -2,6 +2,8 @@ import { create } from 'zustand';
 import { createJSONStorage, persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
+import { WALLET_BOSS, WALLET_CUSTOMER } from '~/app/constant';
+
 type Item = {
   createdAt: string;
   name: string;
@@ -9,11 +11,21 @@ type Item = {
 };
 
 interface State {
-  list: Item[];
+  list: {
+    [address: string]: Item[];
+  };
 }
 
 interface Actions {
-  add: ({ name, amount }: { name: string; amount: number }) => void;
+  addHistory: ({
+    address,
+    name,
+    amount,
+  }: {
+    address: string;
+    name: string;
+    amount: number;
+  }) => void;
 }
 
 const initHistory = {
@@ -22,17 +34,22 @@ const initHistory = {
   amount: 1,
 };
 
+const isBoss = localStorage.getItem('isBoss');
+const initWallet = isBoss ? WALLET_BOSS : WALLET_CUSTOMER;
+
 const initialState: State = {
-  list: [initHistory],
+  list: {
+    [initWallet.address]: [initHistory],
+  },
 };
 
 export const useHistoryStore = create<State & Actions>()(
   persist(
-    immer((set, get) => ({
+    immer((set) => ({
       ...initialState,
-      add: ({ name, amount }) => {
+      addHistory: ({ address, name, amount }) => {
         set((state) => {
-          state.list.push({ createdAt: '23. 11. 10', name, amount });
+          state.list[address].push({ createdAt: '23. 11. 10', name, amount });
         });
       },
     })),

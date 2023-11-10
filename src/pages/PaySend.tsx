@@ -4,12 +4,15 @@ import styled from 'styled-components';
 import { WALLET_STORE } from '~/app/constant';
 import PaySend from '~/assets/page/PaySend.svg';
 import useToken from '~/hooks/useToken';
+import { useHistoryStore } from '~/store/history';
 import { useWalletInfoStore } from '~/store/walletInfo';
 
 const PaySendPage = () => {
   const navigate = useNavigate();
 
   const user = useWalletInfoStore((state) => state.user);
+  const addHistory = useHistoryStore((state) => state.addHistory);
+
   const { sendToken } = useToken();
 
   const handleSendCompleteMove = () => {
@@ -19,6 +22,13 @@ const PaySendPage = () => {
       receiver: WALLET_STORE.address,
       amount: 10000,
     });
+
+    addHistory({
+      address: user.address,
+      name: WALLET_STORE.name,
+      amount: 10000,
+    });
+
     navigate('/transfer/send/complete');
   };
 

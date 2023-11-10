@@ -1,18 +1,29 @@
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
+import { WALLET_CUSTOMER } from '~/app/constant';
 import Charge from '~/assets/page/Charge.svg';
 import useToken from '~/hooks/useToken';
+import { useHistoryStore } from '~/store/history';
 import { useWalletInfoStore } from '~/store/walletInfo';
 
 const ChargePage = () => {
   const navigate = useNavigate();
 
   const user = useWalletInfoStore((state) => state.user);
+  const addHistory = useHistoryStore((state) => state.addHistory);
+
   const { chargeToken } = useToken();
 
   const handleCharge = () => {
     chargeToken({ amount: 10000, address: user.address });
+
+    addHistory({
+      address: user.address,
+      name: WALLET_CUSTOMER.name,
+      amount: 10000,
+    });
+
     navigate('/main');
   };
 
