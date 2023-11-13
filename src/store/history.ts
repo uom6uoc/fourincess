@@ -11,18 +11,16 @@ type Item = {
 };
 
 interface State {
-  list: {
-    [address: string]: Item[];
-  };
+  list: [Item[]];
 }
 
 interface Actions {
   addHistory: ({
-    address,
+    index,
     name,
     amount,
   }: {
-    address: string;
+    index: number;
     name: string;
     amount: number;
   }) => void;
@@ -34,22 +32,17 @@ const initHistory = {
   amount: 1,
 };
 
-const isBoss = localStorage.getItem('isBoss');
-const initWallet = isBoss ? WALLET_BOSS : WALLET_CUSTOMER;
-
 const initialState: State = {
-  list: {
-    [initWallet.address]: [initHistory],
-  },
+  list: [[initHistory]],
 };
 
 export const useHistoryStore = create<State & Actions>()(
   persist(
-    immer((set) => ({
+    immer((set, get) => ({
       ...initialState,
-      addHistory: ({ address, name, amount }) => {
+      addHistory: ({ index, name, amount }) => {
         set((state) => {
-          state.list[address].push({ createdAt: '23. 11. 10', name, amount });
+          state.list[index].push({ createdAt: '23. 11. 10', name, amount });
         });
       },
     })),

@@ -23,11 +23,11 @@ const TransferSendPage = () => {
       amount: 10000,
     });
 
-    addHistory({
-      address: user.address,
-      name: WALLET_CUSTOMER.name,
-      amount: 10000,
-    });
+    // addHistory({
+    //   index: 0,
+    //   name: WALLET_CUSTOMER.name,
+    //   amount: 10000,
+    // });
 
     navigate('/transfer/send/complete');
   };

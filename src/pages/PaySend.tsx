@@ -23,11 +23,11 @@ const PaySendPage = () => {
       amount: 10000,
     });
 
-    addHistory({
-      address: user.address,
-      name: WALLET_STORE.name,
-      amount: 10000,
-    });
+    // addHistory({
+    //   index: 1,
+    //   name: WALLET_STORE.name,
+    //   amount: 10000,
+    // });
 
     navigate('/transfer/send/complete');
   };

@@ -18,11 +18,11 @@ const ChargePage = () => {
   const handleCharge = () => {
     chargeToken({ amount: 10000, address: user.address });
 
-    addHistory({
-      address: user.address,
-      name: WALLET_CUSTOMER.name,
-      amount: 10000,
-    });
+    // addHistory({
+    //   index: 0,
+    //   name: WALLET_CUSTOMER.name,
+    //   amount: 10000,
+    // });
 
     navigate('/main');
   };

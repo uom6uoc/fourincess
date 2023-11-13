@@ -1,5 +1,5 @@
 // const MOBILE_URL = 'http://192.168.0.108:3000';
-const MOBILE_URL = 'http://192.168.0.110:3000';
+const MOBILE_URL = 'http://192.168.187.41:3000';
 
 const CHAIN = 'mitumt';
 const API_TOKEN = 'a535eedb120715611f820ed90592ae62';
